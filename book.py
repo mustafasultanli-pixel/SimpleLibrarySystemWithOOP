@@ -4,6 +4,7 @@ class Book:
         self.title = title
         self.author = author
         self.pageCount = pageCount
+        self.isAvailable = True
 
     def showInfo(self):
         print(f"""
@@ -15,7 +16,35 @@ class Book:
 
         """)
 
+        if self.isAvailable:
+            print("Status: Available.")
+        else:
+            print("Status: Borrowed.")
+
+
+        def borrow(self):
+            if self.isAvailable:
+                self.isAvailable = False
+                print(f"{self.title} borrowed")
+            else:
+                print("This book is already borrowed.")
+
+        def returnBook(self):
+            if not self.isAvailable:
+                self.isAvailable = True
+                print(f"{self.title} returned.")
+            else:
+                print("This book is already in the library.")
+
 book1 = Book(1, "Clean Code", "Rober Martin", 464)
 book2 = Book(2, "Python Crash Course", "Eric Matthes", 560)
 book3 = Book(3, "Atomic Habits", "James Clear", 320)
 
+# for i in book1, book2, book3:
+#     i.showInfo()
+
+# book1.showInfo()
+# book1.borrow()
+# book1.showInfo()
+# book1.returnBook()
+# book1.showInfo()
